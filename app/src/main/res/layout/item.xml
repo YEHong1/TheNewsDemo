@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    
-    <study.liangyehong.android.thenews.loopj.android.image.SmartImageView
+    android:layout_width="match_parent"
+    android:layout_height="80dp" >
+
+    <study.liangyehong.android.thenewsdemo.loopj.android.image.SmartImageView
         android:id="@+id/iv_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -16,7 +17,7 @@
         android:layout_toRightOf="@id/iv_icon"
         android:ellipsize="end"
         android:singleLine="true"
-        android:text="A"
+        android:text="啊结果了敬爱个路口就爱看的两个件大事"
         android:textColor="#000000"
         android:textSize="18sp" />
 
@@ -29,7 +30,7 @@
         android:layout_toRightOf="@id/iv_icon"
         android:ellipsize="end"
         android:maxLines="2"
-        android:text="B"
+        android:text="啊结果了敬爱个路口就爱看的两个件上的故事格式的公共的十大歌手大事"
         android:textColor="#999999"
         android:textSize="14sp" />
 

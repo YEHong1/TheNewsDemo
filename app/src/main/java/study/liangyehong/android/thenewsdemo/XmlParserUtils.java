@@ -12,51 +12,73 @@ import java.util.List;
  * Created by Curtain_Liang on 2018/6/23.
  */
 
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.xmlpull.v1.XmlPullParser;
+
+import android.util.Xml;
+
 public class XmlParserUtils {
-    //解析xml的方法
-    public static List<News> parserXml(InputStream in) throws Exception{
-        List<News> newsList = null;
+
+    // 解析xml的业务方法
+    public static List<News> parserXml(InputStream in) throws Exception {
+
+        List<News> newsLists =  null;
         News news = null;
-        //获取xml的解析器
+        // [1]获取xml的解析器
         XmlPullParser parser = Xml.newPullParser();
-        //设置解析器，第一个参数为解析的内容
-        parser.setInput(in,"utf-8");
-        //获取解析的事件类型
+        // [2]设置解析器 要解析的内容
+        parser.setInput(in, "utf-8");
+        // [3]获取解析的事件类型
         int type = parser.getEventType();
-        //但未解析至xml文件的结束标签时，不停的向下解析
-        while (type != XmlPullParser.END_DOCUMENT){
-            //具体地判断一下，解析的是开始节点还是结束节点
-            switch (type){
-                //解析开始节点
-                case XmlPullParser.START_TAG:
-                    if ("channel".equals(parser.getName())){
+        // [4]不停的向下解析
+        while (type != XmlPullParser.END_DOCUMENT) {
+            // [5]具体判断一下解析的是开始节点 还是结束节点
+            switch (type) {
+                case XmlPullParser.START_TAG: // 解析开始节点
+
+                    //[6]具体判断一下解析的是哪个开始标签
+                    if("channel".equals(parser.getName())){
                         //创建一个list集合
-                        newsList = new ArrayList<News>();
-                    }else if ("item".equals(parser.getName())){
+                        newsLists = new ArrayList<News>();
+                    }else if ("item".equals(parser.getName())) {
                         news = new News();
-                    }else if ("title".equals(parser.getName())){
+
+                    }else if ("title".equals(parser.getName())) {
                         news.setTitle(parser.nextText());
-                    }else if ("description".equals(parser.getName())){
+
+                    }else if ("description".equals(parser.getName())) {
                         news.setDescription(parser.nextText());
-                    }else if ("image".equals(parser.getName())){
+
+                    }else if ("image".equals(parser.getName())) {
                         news.setImage(parser.nextText());
-                    }else if ("type".equals(parser.getName())){
+
+                    }else if ("type".equals(parser.getName())) {
                         news.setType(parser.nextText());
-                    }else if ("comment".equals(parser.getName())){
+
+                    }else if ("comment".equals(parser.getName())) {
                         news.setComment(parser.nextText());
+
                     }
+
                     break;
-                //解析结束节点
-                case XmlPullParser.END_TAG:
-                    if ("item".equals(parser.getName())){
-                        //把javabean添加到集合
-                        newsList.add(news);
+
+                case XmlPullParser.END_TAG: // 解析结束标签
+
+                    if ("item".equals(parser.getName())) {
+                        //把javabean添加到 集合
+                        newsLists.add(news);
+
                     }
                     break;
             }
-            //不断地向下解析
+
+            // 不停的向下解析
             type = parser.next();
         }
-        return newsList;
+
+        return newsLists;
     }
 }
