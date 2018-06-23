@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<channel>
+    <item>
+        <title>军报评徐才厚</title>
+        <description>奢望</description>
+        <image>http://10.10.11.13/img/1.jpg</image>
+        <type>1</type>
+        <comment>163</comment>
+    </item>
+    <item>
+        <title>女司机</title>
+        <description>愚昧</description>
+        <image>http://10.10.11.13/img/2.jpg</image>
+        <type>2</type>
+        <comment>13</comment>
+    </item>
+    <item>
+        <title>打麻将</title>
+        <description>神圣</description>
+        <image>http://10.10.11.13/img/3.jpg</image>
+        <type>1</type>
+	<comment>1</comment>
+    </item>
+    <item>
+        <title>精灵宝可梦</title>
+        <description>责任</description>
+        <image>http://10.10.11.13/img/1.jpg</image>
+        <type>3</type>
+        <comment>8</comment>
+    </item>
+</channel>
